@@ -2,16 +2,16 @@
 
 '''
 Created on the 9th of July 2016
-@author: Fabio Mattei, Tommaso
+@author: Fabio Mattei, Tommaso Gatta
 '''
 
 from tkinter import *
 from src.gui import Gui
             
 def main():            
-    
-    root = Tk()
-    app = Gui(root)
-    root.mainloop()
+            
+    app = Gui()
+    app.mainloop()
+
     
 if __name__ == "__main__": main()
