@@ -10,6 +10,9 @@ Created on the 9th of July 2016
 #======================
 import os
 import zipfile
+import tkinter as tk
+from tkinter import ttk
+from tkinter import scrolledtext
 
 def zipdir(path, ziph):
     # ziph is zipfile handle
@@ -25,3 +28,4 @@ if __name__ == '__main__':
     zipf = zipfile.ZipFile('projectname.zip', 'w', zipfile.ZIP_DEFLATED)
     zipdir('projectfolder', zipf)
     zipf.close()
+    
