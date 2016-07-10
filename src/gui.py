@@ -5,6 +5,14 @@ from tkinter.filedialog import askdirectory
 class Gui(tk.Tk):
     
     def __init__(self, *args, **kwargs):
+        """
+        Constructor of main window
+        it is made by:
+        ttk.Entry containing the zip package name
+        ttk.Treeview containing files and folders that belongs to the project
+        tk.Button for changing folder
+        tk.Button for generating the zip file
+        """
         tk.Tk.__init__(self, *args, **kwargs)
         container = tk.Frame(self)
         container.pack(side="top", fill="both", expand=True)
@@ -41,12 +49,12 @@ class BrowsePage(tk.Frame):
         self.label = tk.Label(self, text="")
         self.label.pack(side="top", fill="x", pady=10)
         self.names = []
-        button = tk.Button(self, text="Sfoglia", command = self.files_pag)
+        button = tk.Button(self, text="Select project folder", command = self.files_pag)
         button.pack()
     
     def files_pag(self):
         """
-        Callback linked to Sfoglia button.
+        Callback linked to "Select project folder" button.
         walk in to a directory and put all files in the label.
         """
         folder = askdirectory()
@@ -73,3 +81,4 @@ class FilesPage(tk.Frame):
     def change_label(self):
         """This function changes the text of the label to CAMBIATA"""
         self.label.config(text = 'CAMBIATA')
+        
