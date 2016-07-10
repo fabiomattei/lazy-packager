@@ -17,6 +17,12 @@ class Gui(tk.Tk):
         self.show_frame("BrowsePage", 'Seleziona una directory da Zippare, Pigro!')
 
     def show_frame(self, page_name, labText):
+        """
+        :param page_name (spiega cosa e' questo parametro)
+        :param labText   (spiega cosa e' questo parametro)
+
+        Change the content of the label
+        """
         frame = self.frames[page_name]
         frame.label.config(text = labText )
         frame.tkraise()
@@ -25,6 +31,11 @@ class Gui(tk.Tk):
 class BrowsePage(tk.Frame):
     
     def __init__(self, parent, controller):
+        """
+        Constructor of Browse page.
+        it is made by a label that will contain the file names
+        and a button that reload files
+        """
         tk.Frame.__init__(self, parent)
         self.controller = controller
         self.label = tk.Label(self, text="")
@@ -34,6 +45,10 @@ class BrowsePage(tk.Frame):
         button.pack()
     
     def files_pag(self):
+        """
+        Callback linked to Sfoglia button.
+        walk in to a directory and put all files in the label.
+        """
         folder = askdirectory()
         self.label.config(text="")
         for path, dirs, files in os.walk(folder):
@@ -47,6 +62,7 @@ class BrowsePage(tk.Frame):
 class FilesPage(tk.Frame):
 
     def __init__(self, parent, controller):
+        """Constructor of files page, it creates a label and a button"""
         tk.Frame.__init__(self, parent)
         self.controller = controller
         self.label = tk.Label(self, text="")
@@ -55,4 +71,5 @@ class FilesPage(tk.Frame):
         button.pack()
     
     def change_label(self):
+        """This function changes the text of the label to CAMBIATA"""
         self.label.config(text = 'CAMBIATA')
