@@ -49,12 +49,12 @@ class BrowsePage(tk.Frame):
         self.label = tk.Label(self, text="")
         self.label.pack(side="top", fill="x", pady=10)
         self.names = []
-        button = tk.Button(self, text="Sfoglia", command = self.files_pag)
+        button = tk.Button(self, text="Select project folder", command = self.files_pag)
         button.pack()
     
     def files_pag(self):
         """
-        Callback linked to Sfoglia button.
+        Callback linked to "Select project folder" button.
         walk in to a directory and put all files in the label.
         """
         folder = askdirectory()

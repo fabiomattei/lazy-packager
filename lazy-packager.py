@@ -8,8 +8,7 @@ Created on the 9th of July 2016
 from tkinter import *
 from src.gui import Gui
             
-def main():            
-            
+def main():
     app = Gui()
     app.mainloop()
 
