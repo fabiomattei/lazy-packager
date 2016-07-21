@@ -13,23 +13,28 @@ class Gui(tk.Tk):
         tk.Button for changing folder
         tk.Button for generating the zip file
         """
+        # initializing main window
         tk.Tk.__init__(self, *args, **kwargs)
         container = tk.Frame(self)
         container.pack(side="top", fill="both", expand=True)
+        # initializing dictionary that is going to contain all frames
         self.frames = {}
+        # adding all necessary frames to the dictionary
         for F in (BrowsePage, FilesPage):
             page_name = F.__name__
             frame = F(parent=container, controller=self)
             self.frames[page_name] = frame
             frame.grid(row=0, column=0, sticky="nsew")
-        self.show_frame("BrowsePage", 'Seleziona una directory da Zippare, Pigro!')
+        # ginving control to the first frame
+        self.show_frame("BrowsePage", 'Select the project directory containing all files')
 
     def show_frame(self, page_name, labText):
         """
-        :param page_name (spiega cosa e' questo parametro)
-        :param labText   (spiega cosa e' questo parametro)
-
-        Change the content of the label
+        It shows the selected frame contained in the dictionary and
+        initialize its lable with the labText
+        
+        :param page_name   string that allows to take the page from the dictionary self.frames
+        :param labText     lable initializer
         """
         frame = self.frames[page_name]
         frame.label.config(text = labText )
