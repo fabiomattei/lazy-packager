@@ -6,7 +6,7 @@ Created on the 9th of July 2016
 '''
 
 from tkinter import *
-from src.gui import Gui
+from src.gui.gui import Gui
             
 def main():
     app = Gui()
