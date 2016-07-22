@@ -39,4 +39,9 @@ class Gui(tk.Tk):
         frame = self.frames[page_name]
         frame.label.config(text = labText )
         frame.tkraise()
+        
+    def set_path(self, page_name, path):
+        frame = self.frames[page_name]
+        frame.set_path(path)
+        
 

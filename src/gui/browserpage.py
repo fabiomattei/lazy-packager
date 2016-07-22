@@ -25,10 +25,5 @@ class BrowsePage(tk.Frame):
         """
         folder = askdirectory()
         self.label.config(text="")
-        for path, dirs, files in os.walk(folder):
-            self.names.append(path)
-            self.names.append('\n')
-            for f in files:
-                self.names.append(f)
-                self.names.append('\n')
         self.controller.show_frame("FilesPage", self.names)
+        self.controller.set_path("FilesPage", folder)
